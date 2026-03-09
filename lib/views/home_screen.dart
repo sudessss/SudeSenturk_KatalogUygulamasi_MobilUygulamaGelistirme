@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:katalog_uygulamasi/components/product_card.dart';
 import 'package:katalog_uygulamasi/model/product_model.dart';
 import 'package:katalog_uygulamasi/services/api_service.dart';
+import 'package:katalog_uygulamasi/views/cart_screen.dart';
+import 'package:katalog_uygulamasi/views/product_detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,6 +18,8 @@ class _HomeScreenState extends State<HomeScreen> {
   String errorMesagge = "";
   List<Data> allProducts = [];
   ApiService apiService = ApiService();
+  final Set<int> cartIds = {};
+  String searchQuery = "";
 
   @override
   void initState() {
@@ -44,6 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final filteredProducts = allProducts.where((product) {
+      final name = product.name ?? "";
+      return name.toUpperCase().contains(searchQuery.toUpperCase());
+    }).toList();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
@@ -64,7 +74,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CartScreen(
+                            products: allProducts,
+                            cartIds: cartIds,
+                          ),
+                        ),
+                      );
+                    },
                     iconSize: 32,
                     icon: Icon(Icons.shopping_bag_outlined),
                   ),
@@ -95,6 +115,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(vertical: 14),
                   ),
+                  onChanged: (value) {
+                    setState(() {
+                      searchQuery = value;
+                    });
+                  },
                 ),
               ),
 
@@ -123,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
               else
                 Expanded(
                   child: GridView.builder(
-                    itemCount: allProducts.length,
+                    itemCount: filteredProducts.length,
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       crossAxisSpacing: 10,
@@ -131,69 +156,20 @@ class _HomeScreenState extends State<HomeScreen> {
                       childAspectRatio: 0.7,
                     ),
                     itemBuilder: (context, index) {
-                      final product = allProducts[index];
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: 5,
-                              offset: Offset(0, 3),
-                            ),
-                          ],
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: ClipRRect(
-                                borderRadius: const BorderRadius.vertical(
-                                  top: Radius.circular(12),
-                                ),
-                                child: Image.network(product.image ?? ""),
+                      final product = filteredProducts[index];
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailScreen(
+                                product: product,
+                                cartIds: cartIds,
                               ),
                             ),
-
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    product.name ?? "",
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-
-                                  SizedBox(height: 1),
-                                  Text(
-                                    product.tagline ?? "",
-                                    style: TextStyle(
-                                      color: Colors.grey.shade600,
-                                      fontSize: 12,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                  ),
-
-                                  SizedBox(height: 1),
-
-                                  Text(
-                                    product.price ?? "N/A",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.blue.shade700,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                          );
+                        },
+                        child: ProductCard(product: product),
                       );
                     },
                   ),
