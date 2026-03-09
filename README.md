@@ -25,8 +25,10 @@ Bu uygulama, bir haftalık yoğunlaştırılmış Flutter eğitimi kapsamında g
 ---
 
 ### 🛠️ Kullanılan Teknolojiler & Özellikler
-* **Framework:** Flutter (Stable)
-* **Dil:** Dart (Null Safety)
+* **Framework:** Flutter 3.41.2 (Channel Stable)
+* **Dart SDK:** Dart 3.11.0 DevTools:
+* **DevTools:** 2.54.1 
+* **Versiyon Kontrol:** Git & GitHub
 * **UI Components:** GridView, Custom Card Widgets, BottomSheets, SnackBar
 * **Navigation:** MaterialPageRoute & Navigator Pop/Push
 * **Data Handling:** JSON Parsing & API Service Integration Simülasyonu
@@ -58,8 +60,9 @@ Projeyi yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları taki
 | Özellik | Detay |
 | :--- | :--- |
 | **Geliştirici** | Sude Şentürk |
-| **Proje Adı** | SudeSenturk_WebGelistirmeProjesi_ToDoApp |
+| **Proje Adı** | SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme |
 | **Eğitim** | Flutter Mobil Uygulama Geliştirme Eğitimi |
+| **Flutter Sürümü** | 3.41.2 (Stable) |
 | **Durum** | ✅ Production Ready (Tamamlandı) |
 
 ---
