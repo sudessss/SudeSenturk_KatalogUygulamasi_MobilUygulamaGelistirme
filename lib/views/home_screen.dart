@@ -29,21 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Future<void> loadProducts() async {
     try {
-      setState(() {
-        isLoading = true;
-      });
+      setState(() => isLoading = true);
       ProductModel resData = await apiService.fetchProducts();
-      setState(() {
-        allProducts = resData.data ?? [];
-      });
+      setState(() => allProducts = resData.data ?? []);
     } catch (e) {
-      setState(() {
-        errorMesagge = "Failed to load products.";
-      });
+      setState(() => errorMesagge = "Failed to load products.");
     } finally {
-      setState(() {
-        isLoading = false;
-      });
+      setState(() => isLoading = false);
     }
   }
 
@@ -51,133 +43,212 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final filteredProducts = allProducts.where((product) {
       final name = product.name ?? "";
-      return name.toUpperCase().contains(searchQuery.toUpperCase());
+      return name.toLowerCase().contains(searchQuery.toLowerCase());
     }).toList();
 
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 10),
+              // Üst Kısım: Başlık ve Sepet
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Discover",
-                    style: TextStyle(
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: -0.5,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => CartScreen(
-                            products: allProducts,
-                            cartIds: cartIds,
-                          ),
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Discover",
+                        style: TextStyle(
+                          fontSize: 34,
+                          fontWeight: FontWeight.w900,
+                          letterSpacing: -1,
                         ),
-                      );
-                    },
-                    iconSize: 32,
-                    icon: Icon(Icons.shopping_bag_outlined),
+                      ),
+                      Text(
+                        "Find your perfect device.",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
+                  ),
+                  // Sepet İkonu Bölümü
+                  Padding(
+                    padding: const EdgeInsets.only(top: 4.0),
+                    child: Stack(
+                      alignment: Alignment.center,
+                      clipBehavior: Clip.none,
+                      children: [
+                        IconButton(
+                          onPressed: () => _navigateToCart(),
+                          icon: const Icon(Icons.shopping_bag_outlined),
+                          iconSize: 38,
+                          color: Colors.black,
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                        ),
+                        if (cartIds.isNotEmpty)
+                          Positioned(
+                            right: 3,
+                            top: 20,
+                            child: Container(
+                              padding: const EdgeInsets.all(4),
+                              decoration: BoxDecoration(
+                                color: Colors.redAccent,
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width: 2,
+                                ),
+                              ),
+                              constraints: const BoxConstraints(
+                                minWidth: 22,
+                                minHeight: 22,
+                              ),
+                              child: Text(
+                                '${cartIds.length}',
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ],
               ),
 
-              SizedBox(height: 8),
-
-              Text(
-                "Find your prefect device.",
-                style: TextStyle(fontSize: 16, color: Colors.grey),
-              ),
-
-              SizedBox(height: 14),
+              const SizedBox(height: 20),
 
               Container(
                 decoration: BoxDecoration(
-                  color: Color(0xfff5f5f5),
-                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.grey.shade100,
+                  borderRadius: BorderRadius.circular(18),
                 ),
-
                 child: TextField(
                   controller: searchController,
-                  decoration: InputDecoration(
-                    hintText: "Search products",
-                    hintStyle: TextStyle(color: Colors.grey),
-                    prefixIcon: Icon(Icons.search, color: Colors.grey),
+                  onChanged: (value) => setState(() => searchQuery = value),
+                  style: const TextStyle(fontSize: 16),
+                  decoration: const InputDecoration(
+                    hintText: "Search your favorite items...",
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
+                    prefixIcon: Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                      size: 28,
+                    ),
                     border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(vertical: 14),
+                    contentPadding: EdgeInsets.symmetric(
+                      vertical: 18,
+                    ), // Yükseklik buradan ayarlandı
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      searchQuery = value;
-                    });
-                  },
                 ),
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 20),
 
+              // Promosyon Bannerı
               Container(
                 width: double.infinity,
-                height: 80.0,
+                height: 120.0,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  image: DecorationImage(
+                  borderRadius: BorderRadius.circular(20),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 10,
+                      offset: const Offset(0, 5),
+                    ),
+                  ],
+                  image: const DecorationImage(
                     image: NetworkImage(
                       "https://wantapi.com/assets/banner.png",
                     ),
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.cover,
                   ),
                 ),
               ),
 
-              SizedBox(height: 16),
+              const SizedBox(height: 24),
 
-              if (isLoading)
-                Center(child: CircularProgressIndicator())
-              else if (errorMesagge != "")
-                Center(child: Text(errorMesagge))
-              else
-                Expanded(
-                  child: GridView.builder(
-                    itemCount: filteredProducts.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                      childAspectRatio: 0.7,
-                    ),
-                    itemBuilder: (context, index) {
-                      final product = filteredProducts[index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ProductDetailScreen(
-                                product: product,
-                                cartIds: cartIds,
-                              ),
-                            ),
-                          );
-                        },
-                        child: ProductCard(product: product),
-                      );
-                    },
-                  ),
-                ),
+              // Ürün Listesi
+              Expanded(child: _buildProductContent(filteredProducts)),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Widget _buildProductContent(List<Data> products) {
+    if (isLoading) {
+      return const Center(
+        child: CircularProgressIndicator(color: Colors.black),
+      );
+    }
+    if (errorMesagge.isNotEmpty) {
+      return Center(child: Text(errorMesagge));
+    }
+    if (products.isEmpty) {
+      return const Center(
+        child: Text(
+          "No products found.",
+          style: TextStyle(color: Colors.grey, fontSize: 16),
+        ),
+      );
+    }
+
+    return GridView.builder(
+      physics: const BouncingScrollPhysics(),
+      itemCount: products.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        crossAxisSpacing: 15,
+        mainAxisSpacing: 15,
+        childAspectRatio: 0.75, // Kartların boyunu biraz daha dengeli yaptım
+      ),
+      itemBuilder: (context, index) {
+        final product = products[index];
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    ProductDetailScreen(product: product, cartIds: cartIds),
+              ),
+            ).then(
+              (_) => setState(() {}),
+            ); // Geri dönüldüğünde sepet sayısını güncellemek için
+          },
+          child: ProductCard(product: product),
+        );
+      },
+    );
+  }
+
+  void _navigateToCart() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            CartScreen(products: allProducts, cartIds: cartIds),
+      ),
+    ).then(
+      (_) => setState(() {}),
+    ); // Sepetten ürün silinirse ana ekrandaki sayıyı güncellemek için
   }
 }
