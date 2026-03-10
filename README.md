@@ -22,7 +22,7 @@ Bu uygulama, bir haftalık yoğunlaştırılmış Flutter eğitimi kapsamında g
 ### 📸 Uygulama Ekran Görüntüleri
 | Ana Sayfa & Keşfet | Ürün Detay Sayfası | Sepetim & Ödeme |
 | :---: | :---: | :---: |
-| ![Ana Sayfa](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/home_screen.jpg) | ![Detay Sayfası](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/detail_screen.jpg) | ![Sepet](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/cart_screen.jpg) |
+| ![Ana Sayfa](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/DiscoverScreen.png) | ![Detay Sayfası](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/DetaySayfasi.png) | ![Sepet](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/DoluSepetGorunumu.png) |
 
 > **Not:** Görsellerin görünmesi için `lib` klasörünün yanına bir `screenshots` klasörü açıp içine ekran görüntülerini ilgili isimlerle eklemeyi unutmayın.
 
@@ -105,7 +105,7 @@ katalog_uygulamasi/
 │   │   ├── home_screen.dart        # Ana sayfa: Banner ve ürün listeleme görünümü
 │   │   └── product_detail_screen.dart # Ürün detayları ve "Sepete Ekle" işlevselliği
 │   └── main.dart                   # Uygulama giriş noktası, tema ve route tanımları
-├── assets/                         # Uygulama tanıtım materyalleri
+├── screenshots/                    # Uygulama ekran görüntüleri
 │   ├── images/                     # Banner ve ürün görselleri
 │   └── data/                       # (Opsiyonel) Yerel veri simülasyonu için JSON dosyaları
 ├── linux/                          # Linux masaüstü desteği dosyaları
