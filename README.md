@@ -27,7 +27,9 @@ Bu uygulama, bir haftalık yoğunlaştırılmış Flutter eğitimi kapsamında g
 ### 🛠️ Kullanılan Teknolojiler & Özellikler
 * **Framework:** Flutter 3.41.2 (Channel Stable)
 * **Dart SDK:** Dart 3.11.0 DevTools:
-* **DevTools:** 2.54.1 
+* **DevTools:** 2.54.1
+* **IDE:** Visual Studio Code / Android Studio
+* **Test Ortamı:** Android Studio - Android Emulator (Pixel 9) 📱
 * **Versiyon Kontrol:** Git & GitHub
 * **UI Components:** GridView, Custom Card Widgets, BottomSheets, SnackBar
 * **Navigation:** MaterialPageRoute & Navigator Pop/Push
