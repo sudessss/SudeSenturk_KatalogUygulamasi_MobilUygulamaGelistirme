@@ -67,7 +67,7 @@ Projeyi yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları taki
 | :--- | :--- |
 | **Geliştirici** | Sude Şentürk |
 | **Proje Adı** | SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme |
-| **Eğitim** | Flutter Mobil Uygulama Geliştirme Eğitimi |
+| **Proje** | Mobil Uygulama Geliştirme; Android / iOS Eğitimi Projesi (Software Persona - TNC Group) |
 | **Flutter Sürümü** | 3.41.2 (Stable) |
 | **Durum** | ✅ Status: Completed Project |
 
