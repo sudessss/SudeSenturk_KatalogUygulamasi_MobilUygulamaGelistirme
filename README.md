@@ -1,3 +1,6 @@
+![Flutter](https://img.shields.io/badge/Flutter-3.41-blue)
+![Dart](https://img.shields.io/badge/Dart-3.11-blue)
+![Platform](https://img.shields.io/badge/Platform-Android-green)
 # 🚀 SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme
 
 🔗 **Proje Repository:** [GitHub Linki](https://github.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme)
@@ -34,7 +37,7 @@ Bu uygulama, bir haftalık yoğunlaştırılmış Flutter eğitimi kapsamında g
 * **UI Components:** GridView, Custom Card Widgets, BottomSheets, SnackBar
 * **Navigation:** MaterialPageRoute & Navigator Pop/Push
 * **Data Handling:** JSON Parsing & API Service Integration Simülasyonu
-* **State Management:** Temel `setState` ile dinamik sepet güncelleme ✅
+* **State Management:** State Management: Local state management using setState ✅
 
 ---
 
