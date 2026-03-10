@@ -20,12 +20,14 @@ Bu uygulama, bir haftalık yoğunlaştırılmış Flutter eğitimi kapsamında g
 ---
 
 ### 📸 Uygulama Ekran Görüntüleri
-| Ana Sayfa & Keşfet | Ürün Detay Sayfası | Sepetim & Ödeme |
+
+| Ana Sayfa & Keşfet | Ürün Detay Sayfası | Sepetim (Dolu) |
 | :---: | :---: | :---: |
 | ![Ana Sayfa](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/DiscoverScreen.png) | ![Detay Sayfası](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/DetaySayfasi.png) | ![Sepet](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/DoluSepetGorunumu.png) |
 
-> **Not:** Görsellerin görünmesi için `lib` klasörünün yanına bir `screenshots` klasörü açıp içine ekran görüntülerini ilgili isimlerle eklemeyi unutmayın.
-
+| Arama Kullanımı | Sepete Ekleme Bildirimi | Boş Sepet Görünümü |
+| :---: | :---: | :---: |
+| ![Search](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/SearchKullanimi.png) | ![Added](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/AddedtoCart.png) | ![Empty](https://raw.githubusercontent.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme/main/screenshots/BosCartGorunumu.png) |
 ---
 
 ### 🛠️ Kullanılan Teknolojiler & Özellikler
