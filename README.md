@@ -107,9 +107,13 @@ katalog_uygulamasi/
 │   │   ├── home_screen.dart        # Ana sayfa: Banner ve ürün listeleme görünümü
 │   │   └── product_detail_screen.dart # Ürün detayları ve "Sepete Ekle" işlevselliği
 │   └── main.dart                   # Uygulama giriş noktası, tema ve route tanımları
-├── screenshots/                    # Uygulama ekran görüntüleri
-│   ├── images/                     # Banner ve ürün görselleri
-│   └── data/                       # (Opsiyonel) Yerel veri simülasyonu için JSON dosyaları
+├── screenshots/                    # Uygulama ekran görüntüleri 
+│   ├── DiscoverScreen.png          # Ana sayfa ve keşfet ekranı görseli
+│   ├── DetaySayfasi.png            # Ürün detay sayfası görseli
+│   ├── DoluSepetGorunumu.png       # Sepet içeriği görseli
+│   ├── SearchKullanimi.png         # Arama fonksiyonu kullanım görseli
+│   ├── AddedtoCart.png             # Sepete ekleme bildirim görseli
+│   └── BosCartGorunumu.png         # Boş sepet ekranı görseli
 ├── linux/                          # Linux masaüstü desteği dosyaları
 ├── macos/                          # macOS masaüstü desteği dosyaları
 ├── web/                            # Web platformu için gerekli dosyalar
