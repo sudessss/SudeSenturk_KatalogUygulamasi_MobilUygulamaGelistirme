@@ -4,8 +4,6 @@
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 # 🚀 SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme
 
-🔗 **Proje Repository:** [GitHub Linki](https://github.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme)
-
 ### 🛍️ Mini Katalog Uygulaması Hakkında
 Bu uygulama, bir haftalık yoğunlaştırılmış Flutter eğitimi kapsamında geliştirilen; ürün listeleme, detay görüntüleme ve sepet simülasyonunu içeren modern bir mobil katalog prototipidir. Proje, Flutter'ın temel yapı taşlarını (Widget ağacı, Navigasyon, Model yapısı) profesyonel standartlarda pekiştirmek amacıyla inşa edilmiştir.
 
