@@ -65,7 +65,7 @@ Projeyi yerel ortamınızda ayağa kaldırmak için aşağıdaki adımları taki
 | **Proje Adı** | SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme |
 | **Eğitim** | Flutter Mobil Uygulama Geliştirme Eğitimi |
 | **Flutter Sürümü** | 3.41.2 (Stable) |
-| **Durum** | ✅ Production Ready (Tamamlandı) |
+| **Durum** | ✅ Status: Completed Project |
 
 ---
 
