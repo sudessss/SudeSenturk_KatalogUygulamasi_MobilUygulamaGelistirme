@@ -1,6 +1,7 @@
-![Flutter](https://img.shields.io/badge/Flutter-3.41-blue)
-![Dart](https://img.shields.io/badge/Dart-3.11-blue)
-![Platform](https://img.shields.io/badge/Platform-Android-green)
+![Flutter](https://img.shields.io/badge/Flutter-3.41.2-blue?logo=flutter)
+![Dart](https://img.shields.io/badge/Dart-3.11.0-blue?logo=dart)
+![Platform](https://img.shields.io/badge/Platform-Android-green?logo=android)
+![Status](https://img.shields.io/badge/Status-Completed-success)
 # 🚀 SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme
 
 🔗 **Proje Repository:** [GitHub Linki](https://github.com/sudessss/SudeSenturk_KatalogUygulamasi_MobilUygulamaGelistirme)
